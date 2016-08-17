@@ -1,5 +1,5 @@
 system:  marblemouse doas noxcons
-user: xmonadconf shellconf
+user: xmonadconf
 
 #
 # System-level configs
@@ -22,5 +22,7 @@ xmonadconf:
 	ln -sf `pwd`/xmonad/xmonad.hs ${HOME}/.xmonad/xmonad.hs
 	ln -sf `pwd`/xmonad/xsession ${HOME}/.xsession
 
-shellconf:
-	ln -sf `pwd`/shell/profile ${HOME}/.profile
+gpgconf:
+	mkdir -p ${HOME}/.gnupg
+	chmod 700 ${HOME}/.gnupg
+	ln -sf `pwd`/gnupg/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
