@@ -14,5 +14,5 @@ main = do
 
   xmonad $ baseConfig
     { modMask = mod4Mask
-    , terminal = "urxvt +sb"
+    , terminal = "st"
     }
