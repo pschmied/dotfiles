@@ -1,5 +1,5 @@
 system:  marblemouse doas noxcons
-user: xmonadconf
+user: xmonadconf shellconf
 
 #
 # System-level configs
@@ -21,3 +21,6 @@ xmonadconf:
 	mkdir -p ${HOME}/.xmonad
 	ln -sf `pwd`/xmonad/xmonad.hs ${HOME}/.xmonad/xmonad.hs
 	ln -sf `pwd`/xmonad/xsession ${HOME}/.xsession
+
+shellconf:
+	ln -sf `pwd`/shell/profile ${HOME}/.profile
