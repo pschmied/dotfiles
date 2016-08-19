@@ -1,5 +1,5 @@
 openbsd:  marblemouse doas noxcons
-ubuntu: pkgs emacshelper passmenu
+ubuntu: pkgs emacshelper passmenu disablesshagent
 user: xmonadconf
 
 #
@@ -19,13 +19,16 @@ noxcons:
 # Ubuntu system-level configs
 # 
 pkgs:
-	apt install xmonad stterm chromium-browser gnupg2 scdaemon libccid dirmngr gpg-agent pinentry-gtk2 pcscd git xautolock xfonts-terminus suckless-tools pass offlineimap mu4e pandoc
+	apt install xmonad stterm chromium-browser gnupg2 scdaemon libccid dirmngr gnupg-agent pinentry-gtk2 pcscd git xautolock xfonts-terminus suckless-tools pass offlineimap mu4e pandoc
 
 emacshelper: pkgs
 	install -m755 Ubuntu/emacshelper /usr/bin/e
 
 passmenu: pkgs
 	install -m755 /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
+
+disablesshagent:
+	sed -i -e 's/^use-ssh-agent/# use-ssh-agent/' /etc/X11/Xsession.options
 
 # 
 # User-level configs
