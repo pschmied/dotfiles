@@ -1,6 +1,6 @@
 openbsd:  marblemouse doas noxcons
 ubuntu: pkgs emacshelper passmenu disablesshagent
-user: xmonadconf
+user: xmonadconf gpgconf
 
 #
 # OpenBSD system-level configs
@@ -36,9 +36,8 @@ disablesshagent:
 xmonadconf:
 	mkdir -p ${HOME}/.xmonad
 	ln -sf `pwd`/xmonad/xmonad.hs ${HOME}/.xmonad/xmonad.hs
-	ln -sf `pwd`/xmonad/xsession ${HOME}/.xsession
 
 gpgconf:
 	mkdir -p ${HOME}/.gnupg
 	chmod 700 ${HOME}/.gnupg
-	ln -sf `pwd`/gnupg/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
+	install -m644 ./gnupg/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
