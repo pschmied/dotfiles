@@ -13,6 +13,7 @@ main = do
   -- xmproc <- spawnPipe "/usr/local/bin/xmobar ~/.xmobarrc"
   xmproc <- spawnPipe "/usr/bin/setxkbmap -option ctrl:nocaps -option compose:ralt"
   xmproc <- spawnPipe "/usr/bin/gpg-agent --enable-ssh --daemon"
+  xmproc <- spawnPipe "/usr/bin/emacs --daemon"
   -- xmproc <- spawnPipe "/usr/bin/mixerctl  outputs.master=156"
 
   xmonad $ baseConfig
