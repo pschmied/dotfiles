@@ -1,11 +1,11 @@
-openbsd:  marblemouse doas noxcons
-ubuntu: pkgs emacshelper passmenu disablesshagent
+openbsd:  marblemouse-o doas noxcons
+ubuntu: pkgs emacshelper mu4ehelper passmenu disablesshagent marblemouse-u
 user: xmonadconf gpgconf
 
 #
 # OpenBSD system-level configs
 # 
-marblemouse:
+marblemouse-o:
 	install -m644 OpenBSD/50-marblemouse.conf /usr/X11R6/share/X11/xorg.conf.d/
 
 doas:
@@ -24,11 +24,17 @@ pkgs:
 emacshelper: pkgs
 	install -m755 Ubuntu/emacshelper /usr/bin/e
 
+mu4ehelper: pkgs
+	install -m755 Ubuntu/mu4ehelper /usr/bin/e-mail
+
 passmenu: pkgs
 	install -m755 /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
 
 disablesshagent:
 	sed -i -e 's/^use-ssh-agent/# use-ssh-agent/' /etc/X11/Xsession.options
+
+marblemouse-u:
+	install -m644 Ubuntu/50-marblemouse.conf /usr/share/X11/xorg.conf.d
 
 # 
 # User-level configs
