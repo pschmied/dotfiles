@@ -19,7 +19,7 @@ noxcons:
 # Ubuntu system-level configs
 # 
 pkgs:
-	apt install xmonad stterm chromium-browser gnupg2 scdaemon libccid dirmngr gnupg-agent pinentry-gtk2 pcscd git xautolock xfonts-terminus suckless-tools pass offlineimap mu4e pandoc
+	apt install xmonad stterm chromium-browser gnupg2 scdaemon libccid dirmngr gnupg-agent pinentry-gtk2 pcscd git xautolock xfonts-terminus suckless-tools pass offlineimap mu4e pandoc xfce4-volumed
 
 emacshelper: pkgs
 	install -m755 Ubuntu/emacshelper /usr/bin/e
