@@ -21,7 +21,7 @@ main = do
 
   xmonad $ baseConfig
     { modMask = mod4Mask
-    , terminal = "stterm -f 'Terminus:size=16'"
+    , terminal = "/usr/bin/xfce4-terminal"
     , logHook = updatePointer (0.5, 0.5) (0, 0)
     }
     `additionalKeysP`
