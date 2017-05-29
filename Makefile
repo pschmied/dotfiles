@@ -1,6 +1,6 @@
 openbsd:  marblemouse-o doas noxcons
 ubuntu: pkgs emacshelper mu4ehelper passmenu disablesshagent marblemouse-u
-user: xmonadconf gpgconf
+user: xmonadconf gpgconf git
 
 #
 # OpenBSD system-level configs
@@ -19,7 +19,7 @@ noxcons:
 # Ubuntu system-level configs
 # 
 pkgs:
-	apt install xmonad stterm chromium-browser gnupg2 scdaemon libccid dirmngr gnupg-agent pinentry-gtk2 pcscd git xautolock xfonts-terminus suckless-tools pass offlineimap mu4e pandoc xfce4-volumed
+	apt install xmonad stterm chromium-browser gnupg2 scdaemon libccid dirmngr gnupg-agent pinentry-gtk2 pcscd git xautolock xfonts-terminus suckless-tools pass pandoc xfce4-volumed emacs libssl-dev libgdal-dev libcurl4-openssl-dev lastpass-cli libudunits2-dev git
 
 emacshelper: pkgs
 	install -m755 Ubuntu/emacshelper /usr/bin/e
@@ -47,3 +47,7 @@ gpgconf:
 	mkdir -p ${HOME}/.gnupg
 	chmod 700 ${HOME}/.gnupg
 	install -m644 ./gnupg/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
+
+git:
+	git config --global user.email "peter@thoughtspot.net"
+	git config --global user.name "Peter Schmiedeskamp"
