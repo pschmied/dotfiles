@@ -1,6 +1,6 @@
 openbsd:  marblemouse-o doas noxcons
 ubuntu: pkgs emacshelper mu4ehelper passmenu disablesshagent marblemouse-u
-user: xmonadconf gpgconf git
+user: xmonadconf gpgconf git emacskeybindings
 
 #
 # OpenBSD system-level configs
@@ -51,3 +51,7 @@ gpgconf:
 git:
 	git config --global user.email "peter@thoughtspot.net"
 	git config --global user.name "Peter Schmiedeskamp"
+
+emacskeybindings:
+	gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs" # gtk3
+	gconftool-2 --type=string --set /desktop/gnome/interface/gtk_key_theme Emacs # gtk2
