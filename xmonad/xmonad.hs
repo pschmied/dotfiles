@@ -17,6 +17,7 @@ main = do
   xmproc <- spawnPipe "/usr/bin/numlockx on"
   -- xmproc <- spawnPipe "/usr/bin/emacs --daemon"
   xmproc <- spawnPipe "/usr/bin/xfce4-volumed"
+  xmproc <- spawnPipe "/usr/bin/xfce4-power-manager"
   -- xmproc <- spawnPipe "/usr/bin/mixerctl  outputs.master=156"
 
   xmonad $ baseConfig

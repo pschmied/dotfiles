@@ -1,6 +1,7 @@
 openbsd:  marblemouse-o doas noxcons
 ubuntu: pkgs emacshelper mu4ehelper passmenu disablesshagent marblemouse-u
-user: xmonadconf gpgconf sshconf
+user: xmonadconf gpgconf sshconf git emacskeybindings
+
 
 #
 # OpenBSD system-level configs
@@ -19,7 +20,7 @@ noxcons:
 # Ubuntu system-level configs
 # 
 pkgs:
-	apt install xmonad stterm chromium-browser gnupg2 scdaemon libccid dirmngr gnupg-agent pinentry-gtk2 pcscd git xautolock xfonts-terminus suckless-tools pass offlineimap mu4e pandoc xfce4-volumed
+	apt install xmonad stterm chromium-browser gnupg2 scdaemon libccid dirmngr gnupg-agent pinentry-gtk2 pcscd git xautolock xfonts-terminus suckless-tools pass pandoc xfce4-volumed emacs libssl-dev libgdal-dev libcurl4-openssl-dev lastpass-cli libudunits2-dev git
 
 emacshelper: pkgs
 	install -m755 Ubuntu/emacshelper /usr/bin/e
@@ -51,3 +52,10 @@ gpgconf:
 sshconf:
 	echo "SSH_AUTH_SOCK=/run/user/`id -u`/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;" >> ~/.profile
 
+git:
+	git config --global user.email "peter@thoughtspot.net"
+	git config --global user.name "Peter Schmiedeskamp"
+
+emacskeybindings:
+	gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs" # gtk3
+	gconftool-2 --type=string --set /desktop/gnome/interface/gtk_key_theme Emacs # gtk2
