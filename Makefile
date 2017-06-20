@@ -1,6 +1,6 @@
 openbsd:  marblemouse-o doas noxcons
 ubuntu: pkgs emacshelper mu4ehelper passmenu disablesshagent marblemouse-u
-user: xmonadconf gpgconf
+user: xmonadconf gpgconf sshconf
 
 #
 # OpenBSD system-level configs
@@ -47,3 +47,7 @@ gpgconf:
 	mkdir -p ${HOME}/.gnupg
 	chmod 700 ${HOME}/.gnupg
 	install -m644 ./gnupg/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
+
+sshconf:
+	echo "SSH_AUTH_SOCK=/run/user/`id -u`/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;" >> ~/.profile
+
