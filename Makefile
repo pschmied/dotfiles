@@ -1,6 +1,6 @@
 openbsd:  marblemouse-o doas noxcons
 ubuntu: pkgs emacshelper mu4ehelper passmenu disablesshagent marblemouse-u
-user: xmonadconf gpgconf sshconf git emacskeybindings
+user: xmonadconf gpgconf profile git emacskeybindings
 
 
 #
@@ -49,8 +49,8 @@ gpgconf:
 	chmod 700 ${HOME}/.gnupg
 	install -m644 ./gnupg/gpg-agent.conf ${HOME}/.gnupg/gpg-agent.conf
 
-sshconf:
-	echo "SSH_AUTH_SOCK=/run/user/`id -u`/gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;" >> ~/.profile
+profile:
+	install -m644 ./userprofile/profile ${HOME}/.profile
 
 git:
 	git config --global user.email "peter@thoughtspot.net"
@@ -59,3 +59,4 @@ git:
 emacskeybindings:
 	gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs" # gtk3
 	gconftool-2 --type=string --set /desktop/gnome/interface/gtk_key_theme Emacs # gtk2
+
