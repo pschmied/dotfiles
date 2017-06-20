@@ -15,7 +15,7 @@ main = do
   xmproc <- spawnPipe "/usr/bin/gpg-agent --enable-ssh --daemon"
   xmproc <- spawnPipe "/usr/bin/synclient palmdetect=1 MaxTapTime=0"
   xmproc <- spawnPipe "/usr/bin/numlockx on"
-  xmproc <- spawnPipe "/usr/bin/emacs --daemon"
+  -- xmproc <- spawnPipe "/usr/bin/emacs --daemon"
   xmproc <- spawnPipe "/usr/bin/xfce4-volumed"
   -- xmproc <- spawnPipe "/usr/bin/mixerctl  outputs.master=156"
 
