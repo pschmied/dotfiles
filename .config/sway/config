@@ -1,0 +1,58 @@
+# Set the mod key to the Windows key
+set $mod Mod4
+
+# Set the default output mode and enable adaptive sync for VRR
+output * adaptive_sync on
+
+# Default border style for windows
+default_border pixel 1
+
+# Font for window titles and the bar
+font pango:DejaVu Sans 10
+
+# Start swaybar
+bar {
+    position bottom
+    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #333333
+        inactive_workspace #333333 #333333 #888888
+    }
+}
+
+# Keybindings
+# Open terminal
+bindsym $mod+Return exec kitty
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Toggle between Dvorak and US QWERTY layouts
+bindsym $mod+Shift+space exec "swaymsg input '*' xkb_layout us; swaymsg input '*' xkb_variant dvorak" 
+bindsym $mod+space exec swaymsg input '*' xkb_layout us
+
+# Start dmenu
+bindsym $mod+d exec dmenu_run
+
+# Focus windows
+bindsym $mod+j focus left
+bindsym $mod+l focus down
+bindsym $mod+i focus up
+bindsym $mod+k focus right
+
+# Move windows
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+l move down
+bindsym $mod+Shift+i move up
+bindsym $mod+Shift+k move right
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Reload Sway configuration
+bindsym $mod+Shift+c reload
+
+# Exit Sway
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? Pressing Enter will exit.' -b 'yes, exit' 'swaymsg exit'
