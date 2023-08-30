@@ -24,14 +24,17 @@ bar {
 
 # Keybindings
 # Open terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec foot
 
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-# Toggle between Dvorak and US QWERTY layouts
-bindsym $mod+Shift+space exec "swaymsg input '*' xkb_layout us; swaymsg input '*' xkb_variant dvorak" 
-bindsym $mod+space exec swaymsg input '*' xkb_layout us
+# Toggle between qwerty and dvorak
+input * {
+      xkb_layout us,us
+      xkb_variant dvorak,
+      xkb_options grp:win_space_toggle,ctrl:nocaps
+}		  
 
 # Start dmenu
 bindsym $mod+d exec dmenu_run
