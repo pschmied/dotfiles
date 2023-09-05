@@ -23,7 +23,11 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# Badger keyboard into submission
 exec --no-startup-id asdf
+
+# Set background
+exec --no-startup-id xsetroot -solid black
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
